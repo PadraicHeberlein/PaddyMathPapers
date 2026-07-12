@@ -288,6 +288,26 @@ At each point $\gamma(s)$, we define the Frenet--Serret moving frame \cite{DoCar
 	For the map to be a local diffeomorphism, we require $\det J \neq 0$. Since $u = \rho \cos\theta$ for $0 \leq \rho \leq r(s)$, the range of $u$ is $[-r(s), r(s)]$. The condition $1 - u \kappa(s) > 0$ holds everywhere if and only if $r(s) < 1/\kappa(s)$ for all $s \in [a, b]$, which is the non-degeneracy condition.
 \end{proof}
 
+\subsection{Planar 2D Ribbon Case and Cusp Development}
+
+To build geometric intuition, we examine the 2D planar projection of this coordinate system. Let $\gamma(s)$ be a regular plane curve parameterized by arc length $s$, with tangent $\mathbf{T}(s) = \gamma'(s)$ and unit normal $\mathbf{N}(s) = (-T_y(s), T_x(s))$. A symmetric 2D ribbon of radius $r(s)$ around the axis $\gamma(s)$ is bounded by the offset curves:
+\begin{align}
+	f(s) &= \gamma(s) - r(s) \mathbf{N}(s) \quad \text{(convex side)}, \\
+	h(s) &= \gamma(s) + r(s) \mathbf{N}(s) \quad \text{(concave side)}.
+\end{align}
+Differentiating the concave boundary curve $h(s)$ yields:
+\begin{equation}
+	h'(s) = \gamma'(s) + r(s) \mathbf{N}'(s) = \mathbf{T}(s) (1 - r(s)\kappa(s)).
+\end{equation}
+On the convex side $f(s)$, the tangent speed is scaled by $(1 + r(s)\kappa(s)) > 1$, meaning the normal lines diverge and the boundary remains smooth and expanded. On the concave side $h(s)$, the normal lines converge toward the centers of curvature. If the radius $r(s)$ is close to the local radius of curvature $\rho(s) = 1/\kappa(s)$, the term $(1 - r(s)\kappa(s))$ vanishes, causing the derivative $h'(s)$ to drop to zero and generating a sharp crease or cusp in the boundary, as shown in Fig.~\ref{fig:symmetric_cusp}. This crease marks the physical boundary of the local tubular neighborhood.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/symmetric_cusp.png}
+	\caption{Symmetric 2D ribbon showing cusp development on the concave boundary. The axis curve $\gamma(s)$ (dashed black line) is offset by a constant distance $r$ on both sides. On the convex (left) side, the normal lines diverge, resulting in a smooth boundary $f(s)$. On the concave (right) side, the normal lines converge; where the offset distance $r$ approaches the local radius of curvature $1/\kappa(s)$, the boundary curve $h(s)$ develops a sharp cusp-like indentation, corresponding to the envelope boundary of the tubular neighborhood.}
+	\label{fig:symmetric_cusp}
+\end{figure}
+
 \section{Generalized Surface of Revolution}
 
 The generalized surface is parameterized by
