@@ -33,7 +33,7 @@ latexmk -pdf main.tex
 
 ## Repository Structure
 
-```
+```text
 PaddyMathPapers/
 ├── README.md
 ├── .gitignore
