@@ -1,0 +1,185 @@
+================================================================================
+SUGGESTED READINGS & BIBTEX ITEMS FOR SPECTRAL ENTROPY OF MODULAR MULTIPLICATION
+================================================================================
+
+This document collects the foundational suggested readings spanning number theory,
+information theory, complex analysis, and quantum mechanics that underpin the
+theoretic and numerical results of this paper. Each reading is accompanied by a
+brief description of its relevance and its corresponding BibTeX citation item.
+
+--------------------------------------------------------------------------------
+1. FINITE FIELDS & NUMBER THEORY
+--------------------------------------------------------------------------------
+
+Ireland, K., & Rosen, M. (1990). "A Classical Introduction to Modern Number Theory"
+- Relevance: Provides the foundational number-theoretic background, including properties
+  of finite fields, cyclic groups of units, and the Riemann Zeta function / Von Mangoldt.
+- BibTeX:
+@book{ireland_rosen,
+  title={A Classical Introduction to Modern Number Theory},
+  author={Ireland, Kenneth and Rosen, Michael},
+  volume={84},
+  year={1990},
+  publisher={Springer Science \& Business Media},
+  edition={2nd}
+}
+
+Lidl, R., & Niederreiter, H. (1997). "Finite Fields"
+- Relevance: The definitive reference on the algebraic structure of finite fields, row
+  permutations, and modular arithmetic distributions.
+- BibTeX:
+@book{lidl_niederreiter,
+  title={Finite Fields},
+  author={Lidl, Rudolf and Niederreiter, Harald},
+  volume={20},
+  year={1997},
+  publisher={Cambridge University Press},
+  edition={2nd}
+}
+
+--------------------------------------------------------------------------------
+2. INFORMATION THEORY & SHANNON ENTROPY
+--------------------------------------------------------------------------------
+
+Shannon, C. E. (1948). "A Mathematical Theory of Communication"
+- Relevance: The original, seminal paper establishing Shannon entropy, coding capacity,
+  and the properties of uniform distributions.
+- BibTeX:
+@article{shannon1948,
+  title={A mathematical theory of communication},
+  author={Shannon, Claude Elwood},
+  journal={Bell System Technical Journal},
+  volume={27},
+  number={3},
+  pages={379--423},
+  year={1948},
+  publisher={Nokia Bell Labs}
+}
+
+Cover, T. M., & Thomas, J. A. (2006). "Elements of Information Theory"
+- Relevance: Provides rigorous mathematical proofs for the properties of Shannon entropy,
+  including strict concavity and maximization conditions over finite probability spaces.
+- BibTeX:
+@book{cover_thomas,
+  title={Elements of Information Theory},
+  author={Cover, Thomas M and Thomas, Joy A},
+  year={2006},
+  publisher={John Wiley \& Sons},
+  edition={2nd}
+}
+
+--------------------------------------------------------------------------------
+3. COMPLEX ANALYSIS & INTEGRAL TRANSFORMS
+--------------------------------------------------------------------------------
+
+Garnett, J. B. (2007). "Bounded Analytic Functions"
+- Relevance: Contains the theory of Cauchy transforms and Stieltjes integrals on the
+  boundary of the unit circle, framing the meromorphic behavior of S_n(z).
+- BibTeX:
+@book{garnett,
+  title={Bounded Analytic Functions},
+  author={Garnett, John B},
+  volume={236},
+  year={2007},
+  publisher={Springer Science \& Business Media},
+  edition={Revised 1st}
+}
+
+--------------------------------------------------------------------------------
+4. QUANTUM MECHANICS & BAND STRUCTURES
+--------------------------------------------------------------------------------
+
+Kronig, R. de L., & Penney, W. G. (1931). "Quantum Mechanics of Electrons in Crystal Lattices"
+- Relevance: The foundational model for electrons in periodic delta potentials, serving
+  as the direct physical mapping for prime rings on the unit circle.
+- BibTeX:
+@article{kronig_penney,
+  title={Quantum mechanics of electrons in crystal lattices},
+  author={Kronig, R de L and Penney, WG},
+  journal={Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character},
+  volume={130},
+  number={814},
+  pages={499--513},
+  year={1931},
+  publisher={The Royal Society London}
+}
+
+Griffiths, D. J., & Schroeter, D. F. (2018). "Introduction to Quantum Mechanics"
+- Relevance: Introductory quantum textbook detailing periodic delta potentials, Bloch
+  wavefunctions, and Schrödinger ring boundary conditions.
+- BibTeX:
+@book{griffiths_qm,
+  title={Introduction to Quantum Mechanics},
+  author={Griffiths, David J and Schroeter, Darrell F},
+  year={2018},
+  publisher={Cambridge University Press},
+  edition={3rd}
+}
+
+--------------------------------------------------------------------------------
+5. RANDOM MATRIX THEORY, PRIMES, & QUANTUM CHAOS
+--------------------------------------------------------------------------------
+
+Montgomery, H. L. (1973). "The Pair Correlation of Zeros of the Zeta Function"
+- Relevance: The landmark paper connecting the statistical spacing of Riemann Zeta zeros
+  to eigenvalues of random Hermitian matrices (GUE).
+- BibTeX:
+@inproceedings{montgomery1973,
+  title={The pair correlation of zeros of the zeta function},
+  author={Montgomery, Hugh L},
+  booktitle={Analytic Number Theory},
+  volume={24},
+  pages={181--193},
+  year={1973},
+  organization={American Mathematical Society}
+}
+
+Keating, J. P., & Snaith, N. C. (2000). "Random Matrix Theory and \zeta(1/2+it)"
+- Relevance: Explores the deeper connection between random matrix ensembles, characteristic
+  polynomials, and the value distribution of number-theoretic zeta functions.
+- BibTeX:
+@article{keating_snaith,
+  title={Random Matrix Theory and $\backslash$zeta (1/2+ it)},
+  author={Keating, Jonathan P and Snaith, Nina C},
+  journal={Communications in Mathematical Physics},
+  volume={214},
+  number={1},
+  pages={57--89},
+  year={2000},
+  publisher={Springer}
+}
+
+Berry, M. V., & Keating, J. P. (1999). "The Riemann Zeros and Eigenvalue Asymptotics"
+- Relevance: Outlines the physical background of the Hilbert-Pólya conjecture, mapping
+  zeros of zeta functions to physical Hamiltonian energy levels.
+- BibTeX:
+@article{berry_keating,
+  title={The Riemann zeros and eigenvalue asymptotics},
+  author={Berry, Michael V and Keating, Jonathan P},
+  journal={SIAM Review},
+  volume={41},
+  number={2},
+  pages={236--266},
+  year={1999},
+  publisher={SIAM}
+}
+
+--------------------------------------------------------------------------------
+6. DISORDERED SYSTEMS & LOCALIZATION
+--------------------------------------------------------------------------------
+
+Anderson, P. W. (1958). "Absence of Diffusion in Certain Random Lattices"
+- Relevance: The classic paper establishing Anderson localization, which explains the
+  collapse of wavefunctions (delocalization to localization transition) in amorphous
+  lattices like the composite ring.
+- BibTeX:
+@article{anderson1958,
+  title={Absence of diffusion in certain random lattices},
+  author={Anderson, Philip W},
+  journal={Physical Review},
+  volume={109},
+  number={5},
+  pages={1492},
+  year={1958},
+  publisher={APS}
+}
