@@ -15,7 +15,7 @@
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
 
-\title{\textbf{On the Spectral Entropy of Modular Multiplication and its Complex-Analytic Realization via Residues on the Unit Circle}}
+\title{\textbf{On the Spectral Entropy, Periodicity, and Representation Limits of Discrete Sequences}}
 \author{\textbf{Padraic} \\ \textit{Independent Researcher}}
 \date{\today}
 
@@ -24,20 +24,20 @@
 	\maketitle
 	
 	\begin{abstract}
-		We establish an explicit connection between the Shannon entropy of a modular multiplication matrix, the algebraic properties of finite fields, and the residues of a rational complex function evaluated on the roots of unity. We prove that the classical Shannon entropy of the flattened modular grid achieves its maximum upper bound if and only if $n$ is a prime number. Furthermore, we define the Spectral Remainder Transform $\mathcal{S}_n(z)$, a meromorphic function whose simple poles lie on the unit circle, and demonstrate that the probability distribution governing the entropy is structurally equivalent to the Cauchy residues of $\mathcal{S}_n(z)$. We then derive a non-circular continuous entropy signal $S(x)$ whose peaks correspond precisely to the prime numbers, constructed entirely from the modular multiplication tables without any prior knowledge of the primes. This signal achieves perfect prime detection through $N = 1000$ with fixed parameters. These constructions provide a spectral, information-theoretic criterion for primality.
+		We establish a unified framework for analyzing the spectral entropy, periodicity, and representation limits of discrete sequences. First, we investigate modular multiplication sequences, proving that the Shannon entropy of a flattened modular multiplication matrix achieves its maximum if and only if $n$ is prime. We introduce the Spectral Remainder Transform $\mathcal{S}_n(z)$, a meromorphic function on the unit circle whose Cauchy residues recover this entropy distribution, and derive a continuous entropy landscape $S(x)$ that detects primes through gradient-based search. Second, we generalize this spectral-entropy approach to arbitrary binary sequences by analyzing block-based symbol extensions, demonstrating that the block size minimizing per-bit entropy corresponds to the sequence's fundamental period, detectable in $\mathcal{O}(N \log N)$ time via the Fast Fourier Transform. Third, we establish the fundamental limits of continuous embeddings. We prove an Information Conservation Law showing that mapping discrete strings onto continuous curves (e.g., sinusoidal templates or high-degree polynomials) cannot bypass Shannon's bounds due to a conservation of degrees of freedom and the floating-point inflation penalty. These results outline the boundaries between algebraic structure, information theory, and continuous spectral representations.
 	\end{abstract}
 	
 	\section{Introduction}
-	It is a classical fact in abstract algebra that the ring of integers modulo $n$ forms a field if and only if $n$ is prime \cite{ireland_rosen}. An immediate consequence is that the reduced multiplication table of $\mathbb{Z}/n\mathbb{Z}$ consists entirely of permutation rows when $n$ is prime, producing a perfectly uniform distribution of non-zero residues. Rephrased in the language of information theory, the Shannon entropy of this distribution achieves its theoretical maximum $\log_2(n-1)$ if and only if $n$ is prime.
+	The boundary between discrete information and continuous representation is a central theme in information theory and signal processing. While continuous functions are often used to encode, analyze, or transmit discrete sequences, the fundamental limits of these representation spaces are governed by strict conservation laws. This work explores these limits and structures across three domains: modular arithmetic sequences, block-based sequence periodicities, and continuous curve embeddings.
 	
-	While this entropy characterization of primality is a direct corollary of finite field theory, the present work develops three new constructions built upon it:
-	\begin{enumerate}
-		\item \textbf{The Spectral Remainder Transform} $\mathcal{S}_n(z)$: a meromorphic function on $\mathbb{C}$ whose Cauchy residues at the $n$-th roots of unity recover the entropy distribution, situating the modular-arithmetic data within the framework of Cauchy-type integrals (Section~2).
-		\item \textbf{A non-circular continuous entropy signal} $S(x)$: a smooth, real-valued function whose peaks correspond precisely to the primes, constructed entirely from the modular multiplication tables without any prior knowledge of the prime numbers. This signal achieves perfect prime detection through $N = 1000$ with fixed parameters (Section~5).
-		\item \textbf{The entropy deficit separation gap}: an empirical observation that the minimum composite entropy deficit does not shrink toward zero, suggesting that the detection parameters can be fixed universally (Section~5.4).
-	\end{enumerate}
-	We also explore structural analogies with the Riemann Zeta function (Section~7) and a quantum mechanical interpretation wherein prime fields correspond to perfect crystal lattices (Section~8).
+	First, in the domain of modular arithmetic, it is a classical fact that the ring of integers modulo $n$ forms a field if and only if $n$ is prime \cite{ireland_rosen}. An immediate consequence is that the reduced multiplication table of $\mathbb{Z}/n\mathbb{Z}$ consists of permutation rows when $n$ is prime, producing a uniform residue distribution that maximizes Shannon entropy. We develop three new constructions on this foundation: the Spectral Remainder Transform $\mathcal{S}_n(z)$, whose Cauchy residues recover the entropy distribution (Section~2); a non-circular continuous entropy landscape $S(x)$ that isolates prime numbers through gradient-based search (Section~5 and Section~6); and structural analogies to the Riemann Zeta function and quantum mechanical lattices (Section~7 and Section~8).
 	
+	Second, we generalize this spectral-entropy approach to study the natural periodicities of arbitrary binary sequences. By grouping a string into blocks of size $n$ and evaluating the per-bit block entropy, we show that the optimal block size matches the fundamental period of the sequence. We demonstrate that the Fast Fourier Transform (FFT) can extract this optimal block size and shift parameters in $\mathcal{O}(N \log N)$ time, bypassing brute-force search (Section~9).
+	
+	Third, we examine the converse question: can we compress discrete data by embedding it into a continuous curve and applying spectral analysis? We prove an Information Conservation Law showing that continuous embeddings (such as piecewise-linear slope-modulated sinusoids or interpolating polynomials) necessarily expand the data representation. This failure is traced to a conservation of degrees of freedom in the Fourier domain and the floating-point inflation penalty of digital machines (Section~10).
+	
+	Together, these investigations define the regimes where continuous spectral representations succeed (by capturing local spatial correlation) and where they fail (by attempting to compress independent discrete information).
+
 	Let $n \in \mathbb{Z}^+$ be an integer greater than 2. Consider the reduced multiplication table modulo $n$, represented as an $(n-1) \times (n-1)$ matrix $M$, where the entries are defined by the mapping:
 	\begin{equation}
 		M_{j,k} = (j \cdot k) \pmod n, \quad \text{for } 1 \le j, k \le n-1.
@@ -463,8 +463,170 @@
 		\label{fig:quantum_ring}
 	\end{figure}
 	
-	\section{Conclusion}
-	We have established that the Shannon entropy of the modular multiplication matrix achieves its theoretical maximum if and only if $n$ is prime, and that this discrete algebraic structure can be encoded via the Spectral Remainder Transform $\mathcal{S}_n(z)$, a meromorphic function on the unit circle whose Cauchy residues recover the entropy distribution. Building on this foundation, we constructed a non-circular continuous entropy signal $S(x)$ whose peaks correspond precisely to the primes, derived entirely from the modular multiplication tables without any prior knowledge of the prime numbers. The signal achieves perfect prime detection with fixed parameters through $N = 1000$, and the entropy deficit separation gap --- empirically minimized at $\Delta(10) \approx 0.00193$ --- appears to be a universal constant, suggesting that the detection parameters can be fixed at any scale. This framework bridges information theory, complex analysis, and the algebraic structure of finite fields, providing a geometric perspective on the properties of prime numbers and opening new avenues for investigating the distribution of primes through entropy-based methods.
+\section{Sequential Periodicity and Block Entropy}
+
+While the spectral entropy functional of Section 3 measures structural uniformity in algebraic tables, similar entropy-based tools can detect periodic structure in general discrete sequences. Let $\mathbf{b} = (b_1, b_2, \dots, b_N)$ be a binary string of length $N$, with $b_i \in \{0, 1\}$. The first-order Shannon entropy of $\mathbf{b}$ is
+\begin{equation}
+	H_1(\mathbf{b}) = -p_0 \log_2 p_0 - p_1 \log_2 p_1,
+\end{equation}
+where $p_0$ and $p_1$ are the empirical frequencies of $0$ and $1$ in $\mathbf{b}$. This quantity assumes the source is memoryless (the probability of each bit is independent of all others). If $\mathbf{b}$ possesses sequential structure---such as repeating patterns or periodic motifs---$H_1$ fails to capture it. A periodic string such as $\mathbf{b} = 010101\dots$ has $p_0 = p_1 = 1/2$ and $H_1 = 1$ bit, yet it is highly compressible.
+
+\subsection{Block Entropy and Symbol Extension}
+
+To capture sequential correlations, we group bits into blocks.
+\begin{definition}[Block Entropy]
+	For a positive integer $n$ dividing $N$, partition $\mathbf{b}$ into $N/n$ consecutive non-overlapping blocks of $n$ bits. Each block is interpreted as a symbol from the alphabet $\Sigma_n = \{0, 1\}^n$ of cardinality $2^n$. Let $p_\sigma^{(n)}$ denote the empirical frequency of symbol $\sigma \in \Sigma_n$. The \emph{$n$-gram block entropy} is
+	\begin{equation}
+		H_n(\mathbf{b}) = -\sum_{\sigma \in \Sigma_n} p_\sigma^{(n)} \log_2 p_\sigma^{(n)}.
+	\end{equation}
+	The \emph{per-bit block entropy} is $h_n(\mathbf{b}) = H_n(\mathbf{b}) / n$.
+\end{definition}
+
+\begin{proposition}[Monotonicity of Per-Bit Block Entropy]
+	For any stationary source, the per-bit block entropy is non-increasing:
+	\begin{equation}
+		h_n(\mathbf{b}) \leq h_{n-1}(\mathbf{b}) \leq \cdots \leq h_1(\mathbf{b}) = H_1(\mathbf{b}).
+	\end{equation}
+	Equality holds throughout if and only if the source is memoryless.
+\end{proposition}
+
+\begin{proof}
+	By the chain rule of entropy, the joint entropy of a block of length $n$ is:
+	\begin{equation}
+		H_n(\mathbf{b}) = H(b_1, \dots, b_n) = \sum_{i=1}^n H(b_i \mid b_1, \dots, b_{i-1}).
+	\end{equation}
+	For a stationary source, conditioning reduces entropy, which means the conditional entropies are monotonically non-increasing:
+	\begin{equation}
+		H(b_i \mid b_1, \dots, b_{i-1}) \leq H(b_{i-1} \mid b_1, \dots, b_{i-2}).
+	\end{equation}
+	Thus, the sequence of conditional terms is bounded above by the previous terms, making the running average $h_n(\mathbf{b}) = \frac{1}{n} \sum_{i=1}^n H(b_i \mid b_1, \dots, b_{i-1})$ monotonically non-increasing as $n$ increases. Equality $h_n = H_1$ holds if and only if there is no dependence between bits, which defines a memoryless source.
+\end{proof}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.85\textwidth]{figures/block_entropy_sweep.png}
+	\caption{Per-bit Shannon entropy $h_n$ as a function of block size $n$ for four distinct test sequences. Periodic sequences exhibit sharp local minima at integer multiples of their fundamental period, whereas the random sequence remains flat near the theoretical maximum of $1.0$ bit.}
+	\label{fig:block_entropy_sweep}
+\end{figure}
+
+By sweeping $n$ over candidate block sizes and evaluating $h_n$, we locate the \emph{natural word length} of the data---the block size at which the per-bit entropy is minimized (Figure~\ref{fig:block_entropy_sweep}). If the string has an underlying period of $T$ bits, then $n = T$ yields a maximally skewed symbol distribution and thus the lowest $h_n$.
+
+\subsection{Cyclic Shifts and Padding}
+
+When $n \nmid N$, we extend $\mathbf{b}$ by cyclic repetition (looping the string on itself) and pad with zeros to the nearest multiple of $n$. Let $s \in \{0, 1, \dots, n-1\}$ denote a bit-level shift applied before blocking. The per-bit entropy becomes:
+\begin{equation}
+	h_{n,s}(\mathbf{b}) = \frac{1}{n} H\bigl(\text{BlockPartition}(\text{Shift}_s(\mathbf{b}), n)\bigr).
+\end{equation}
+The optimal compression parameters are
+\begin{equation}
+	(n^*, s^*) = \operatorname*{arg\,min}_{n, s} \; h_{n,s}(\mathbf{b}).
+\end{equation}
+To decompress the string, the decoder requires: the chosen block size $n^*$, the shift $s^*$, and the Huffman dictionary for the $n^*$-bit alphabet. While the metadata overhead is $\mathcal{O}(\log N + 2^{n^*})$, it is amortized asymptotically as $N \to \infty$.
+
+\subsection{Spectral Detection of Periodicity via the FFT}
+
+Rather than brute-force search over all $(n, s)$ pairs, we exploit the duality between periodicity detection and spectral analysis. Map the binary string to a zero-mean real signal:
+\begin{equation}
+	x_i = 2b_i - 1, \qquad x_i \in \{-1, +1\}.
+\end{equation}
+The autocorrelation $R(\tau) = \sum_{i} x_i \, x_{i+\tau}$ measures how well the signal matches a time-shifted copy of itself. By the Wiener--Khinchin theorem, $R(\tau)$ is the inverse Fourier transform of the power spectral density:
+\begin{equation}
+	R(\tau) = \mathcal{F}^{-1}\!\left[\, |\hat{X}(f)|^2 \,\right](\tau),
+\end{equation}
+where $\hat{X}(f) = \mathcal{F}[x](f)$ is the discrete Fourier transform (DFT).
+
+\begin{theorem}[FFT Period Detection]
+	Let $\hat{X}(f)$ be the DFT of the signal $(x_1, \dots, x_N)$, and let $f_{\max}$ be the frequency bin maximizing the power spectral density $|\hat{X}(f)|^2$ (excluding the DC component $f = 0$). Then the dominant period of the string is
+	\begin{equation}
+		T = \frac{N}{f_{\max}},
+	\end{equation}
+	and the optimal block size is $n^* = \operatorname{round}(T)$.
+\end{theorem}
+
+The phase angle $\phi(f_{\max})$ at the dominant frequency encodes the alignment of the periodic pattern relative to the start of the string:
+\begin{equation}
+	s^* = \operatorname{round}\!\left(\frac{\phi(f_{\max})}{2\pi} \cdot T\right) \bmod T.
+\end{equation}
+This extracts both optimal parameters in $\mathcal{O}(N \log N)$ time (Figure~\ref{fig:fft_period_detection}), compared to $\mathcal{O}(N \cdot T_{\max}^2)$ for brute-force search. When the candidate block sizes are restricted to powers of $2$ ($n \in \{2, 4, 8, 16, \dots\}$), the Goertzel algorithm can evaluate the DFT at the $\mathcal{O}(\log N)$ target frequencies in $\mathcal{O}(N)$ time per bin, maintaining a total complexity of $\mathcal{O}(N \log N)$.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.85\textwidth]{figures/fft_period_detection.png}
+	\caption{Discrete Fourier Transform power spectrum (PSD) of a binary sequence of period $T = 3$. The prominent peak at $f = 0.333$ cycles/bit corresponds exactly to the fundamental period, allowing rapid structural period identification in $\mathcal{O}(N \log N)$ operations.}
+	\label{fig:fft_period_detection}
+\end{figure}
+
+\section{Information Conservation and Continuous Representation Limits}
+
+A natural question arises: if the Fourier transform can compress smooth, continuous signals by discarding negligible high-frequency coefficients, can we embed a discrete binary string into a continuous function and compress it via Fourier series? We examine two specific encoding schemes and prove that both necessarily expand the data representation, demonstrating a fundamental information conservation law.
+
+\subsection{Scheme A: Slope-Modulated Sinusoidal Encoding}
+
+Given $N$ bits, partition them into 4 chunks of $N/4$ bits, one per quadrant of a sinusoidal template. On the first quadrant, we construct a piecewise-linear path from $(0, 0)$ to $(\pi/2, 1)$ using $N/4$ discrete steps. At each step $i$:
+\begin{itemize}
+	\item If $b_i = b_{i-1}$ (no transition), the slope remains unchanged.
+	\item If $b_i \neq b_{i-1}$ (transition), the slope decreases by $\frac{4}{N}$.
+\end{itemize}
+Enforcing symmetric boundary conditions ensures the curve passes through $(\pi/2, 1)$, $(\pi, 0)$, $(3\pi/2, -1)$, and $(2\pi, 0)$---matching $\sin(x)$ at multiples of $\pi/2$. A uniform string produces a straight line, while a alternating string produces a piecewise-linear approximation of $\sin(x)$.
+
+The resulting curve has $K = N/4$ "knuckle points" where the slope changes, representing derivative discontinuities. 
+
+\begin{theorem}[Degrees of Freedom Preservation]
+	Let $y(x)$ be a continuous piecewise-linear curve on $[0, 2\pi]$ with $K$ slope discontinuities representing a binary sequence. To reconstruct $y(x)$ losslessly from its Fourier series coefficients, at least $K$ non-zero coefficients are required.
+\end{theorem}
+
+\begin{proof}
+	A continuous piecewise-linear curve with $K$ knots is uniquely parameterized by the $K$ slopes $\{s_i\}_{i=1}^K$ of its segments (and one initial value $y(0)$). Thus, the space of such curves is a linear subspace $V \subset L^2([0, 2\pi])$ of dimension $K+1$.
+	
+	The Fourier transform $\mathcal{F}: L^2([0, 2\pi]) \to \ell^2(\mathbb{Z})$ is a unitary linear operator. By the rank-nullity theorem, the image of $V$ under $\mathcal{F}$ must also be a linear subspace of dimension $K+1$. Consequently, any basis of the image space requires at least $K+1$ coordinates. If we truncate the Fourier series to fewer than $K$ coefficients, the projection operator has a non-trivial kernel, meaning multiple distinct binary strings will map to the same truncated Fourier representation, violating injectivity (lossless reconstruction).
+\end{proof}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/piecewise_linear_encoding.png}
+	\caption{Slope-modulated piecewise-linear encoding of a binary string (top panel) and the corresponding Fourier coefficient decay (bottom panel). To resolve the $K$ knuckle points without loss, we require at least $K$ modes. The coefficients decay as $\mathcal{O}(1/k^2)$, demonstrating that high frequencies cannot be discarded without smoothing the corners and losing the underlying bits.}
+	\label{fig:piecewise_linear_encoding}
+\end{figure}
+
+The Fourier coefficients of this piecewise-linear curve decay asymptotically as $\mathcal{O}(1/k^2)$ (Figure~\ref{fig:piecewise_linear_encoding}). Discarding high-frequency modes rounds the sharp knuckles, destroying the exact slope transitions and making lossless recovery of the original bits impossible.
+
+\subsection{Scheme B: Polynomial Interpolation and the Inflation Penalty}
+
+Instead of connecting the points with line segments, we fit a smooth polynomial through all $K = N/4$ data points to eliminate derivative discontinuities. However, a polynomial passing through $K$ arbitrary points has degree at most $K - 1$ and requires $K$ coefficients. The polynomial oscillates violently between data points (Runge's phenomenon), generating massive high-frequency energy in the Fourier domain.
+
+These failures are explained by a general conservation law:
+
+\begin{theorem}[Information Conservation Law]
+	Let $\mathbf{b} \in \{0,1\}^N$ be a binary string and let $\Phi: \{0,1\}^N \to \mathbb{R}^M$ be any injective (lossless) map into a space of real-valued parameters. If each real parameter is represented with a bit-width of $B$ bits (e.g., $B = 32$ for single-precision floats or $B = 64$ for double-precision), then:
+	\begin{equation}
+		M \cdot B \geq N.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	By definition of injectivity, the cardinality of the image must satisfy $|\Phi(\{0,1\}^N)| = 2^N$. The parameters live in a discrete machine representation space $\mathcal{M}^M$ where $|\mathcal{M}| = 2^B$. The total number of representable states is $(2^B)^M = 2^{M \cdot B}$. For the mapping to be injective, the number of target states must be at least the number of source states:
+	\begin{equation}
+		2^{M \cdot B} \geq 2^N \implies M \cdot B \geq N. \qedhere
+	\end{equation}
+\end{proof}
+
+\begin{corollary}[Sinusoidal Inflation Penalty]
+	If we encode $N$ bits onto a continuous curve using $M = N/4$ coefficients stored as 32-bit floats, the required storage is $32 M = 8 N$ bits. This represents an $8\times$ expansion (inflation penalty) of the data representation.
+\end{corollary}
+
+While Fourier-based encoding fails as a compressor for independent discrete data, it is the mathematical framework used for wireless data transmission (OFDM and QAM), where binary bits are mapped onto sinusoidal subcarriers to transmit data over analog channels rather than to compress it.
+
+\section{Conclusion}
+
+We have established a unified information-theoretic framework governing the spectral entropy, periodicity, and representation limits of discrete sequences. 
+
+First, we proved that the Shannon entropy of modular multiplication matrices achieves its maximum if and only if the modulus $n$ is prime, linking finite field bijections to maximum entropy. We formalized this using the Spectral Remainder Transform $\mathcal{S}_n(z)$, showing that modular residue counts are recovered exactly by its Cauchy residues at the roots of unity. We constructed a continuous analytic continuation $S(x)$ whose peaks locate primes, enabling gradient-ascent tracking. This was realized physically as a tight-binding quantum lattice where prime fields yield extended Bloch waves, while composite fields induce a complete collapse of transport via number-theoretic Anderson localization.
+
+Second, we extended this spectral-entropy framework to arbitrary sequences. We demonstrated that evaluating the per-bit block entropy over varying block sizes $n$ reveals the natural word length of a sequence, and developed an $\mathcal{O}(N \log N)$ FFT-based algorithm to extract the optimal block size and shift parameters.
+
+Third, we examined the boundaries of continuous embeddings. We proved an Information Conservation Law showing that mapping discrete strings to continuous curves and truncating their Fourier representation EM-wise necessarily fails. This results from a conservation of degrees of freedom (governed by the rank-nullity theorem) and the floating-point inflation penalty of machine representations. 
+
+These results demonstrate that spectral compression is highly effective for data that already possesses spatial correlation (such as 3D geometry or natural signals), but fails for independent discrete data where the degrees of freedom do not decay. Together, these findings bridge finite algebra, information theory, and complex analysis, providing a unified perspective on how structure, representation, and compression are fundamentally constrained.
 	
 	\begin{thebibliography}{99}
 		
