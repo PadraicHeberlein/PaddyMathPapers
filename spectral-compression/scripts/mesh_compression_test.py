@@ -103,8 +103,8 @@ def main():
     
     t, z_path, theta_path, r_path = raycast_spiral(mesh, n_windings=150, n_samples=25000)
     
-    # Keep 5% of coefficients
-    r_comp = spectral_compression(r_path, ratio=0.05)
+    # Keep 10% of coefficients
+    r_comp = spectral_compression(r_path, ratio=0.10)
     
     # Reconstruct 3D points
     print("Reconstructing compressed 3D point cloud...")
@@ -122,7 +122,7 @@ def main():
     recon_mesh = trimesh.Trimesh(vertices=np.column_stack((X, Y, Z)), faces=tri.simplices)
     # Fix normals and export
     recon_mesh.fix_normals()
-    export_path = "Head-3-Reconstructed.stl"
+    export_path = "Head-3-Reconstructed-10percent.stl"
     recon_mesh.export(export_path)
     print(f"Exported reconstructed mesh to {export_path}")
     
@@ -153,7 +153,7 @@ def main():
     ax2 = fig.add_subplot(132)
     segment = slice(5000, 6000)
     ax2.plot(t[segment], r_path[segment], 'k-', alpha=0.5, label='Original $r(t)$', linewidth=2)
-    ax2.plot(t[segment], r_comp[segment], 'r--', label='Compressed $r(t)$ (5%)', linewidth=1)
+    ax2.plot(t[segment], r_comp[segment], 'r--', label='Compressed $r(t)$ (10%)', linewidth=1)
     ax2.set_title("1D Unwrapped Spiral Signal (Segment)", fontsize=12)
     ax2.legend()
     ax2.grid(True, alpha=0.3)
@@ -162,7 +162,7 @@ def main():
     ax3 = fig.add_subplot(133, projection='3d')
     sc = ax3.scatter(X, Y, Z, c=errors, cmap='inferno', s=1, alpha=0.8)
     plt.colorbar(sc, ax=ax3, label='Error (Euclidean Dist)', shrink=0.5)
-    ax3.set_title("Reconstructed Point Cloud\n(5% Spectral Coefficients)", fontsize=12)
+    ax3.set_title("Reconstructed Point Cloud\n(10% Spectral Coefficients)", fontsize=12)
     ax3.axis('off')
     
     plt.tight_layout()
