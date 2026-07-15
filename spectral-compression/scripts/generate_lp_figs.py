@@ -32,20 +32,32 @@ plt.savefig(os.path.join(figures_dir, 'lp_circles.png'), dpi=300, bbox_inches='t
 plt.close()
 
 # 2. Pi_p Graph
-def pi_p(p):
-    return (2 * (gamma(1/p)**2)) / (p * gamma(2/p))
+from scipy.integrate import quad
 
-p_range = np.linspace(1, 10, 500)
+def pi_p(p):
+    if p == 1:
+        return 4.0
+    # The true value of pi in Lp space (ratio of Lp-circumference to diameter)
+    val, _ = quad(lambda u: (u**(1-p) + (1-u)**(1-p))**(1/p), 0, 1)
+    return 2 * val
+
+p_range = np.linspace(1, 11, 500)
 pi_vals = [pi_p(p) for p in p_range]
 
-plt.figure(figsize=(6, 4))
-plt.plot(p_range, pi_vals, 'b-', linewidth=2)
-plt.axhline(np.pi, color='r', linestyle='--', label=r'$\pi \approx 3.14159$')
-plt.axhline(4.0, color='g', linestyle='--', label=r'$4.0$ ($L_1$ and $L_\infty$)')
-plt.xlabel('$p$')
-plt.ylabel(r'$\pi_p$')
-plt.title(r'The Value of $\pi$ in $L_p$ Space')
-plt.legend()
-plt.grid(True, alpha=0.5)
+plt.figure(figsize=(8, 4))
+plt.plot(p_range, pi_vals, color='#1f449c', linewidth=1.5)
+plt.axhline(np.pi, color='gray', linewidth=1, alpha=0.7)
+plt.text(11, np.pi + 0.02, '3.14159', ha='right', va='bottom')
+
+# Find and mark minimum
+min_idx = np.argmin(pi_vals)
+plt.plot(p_range[min_idx], pi_vals[min_idx], marker='*', color='#a0403a', markersize=12)
+
+plt.xlabel('p (Exponent for Lp Distance)')
+plt.ylabel('pi(p)')
+plt.title('The Value of pi for the Lp Metric', fontweight='bold')
+plt.grid(True, color='gray', linestyle='-', linewidth=0.2, alpha=0.5)
+plt.xlim(0.8, 11.2)
+plt.ylim(2.95, 4.05)
 plt.savefig(os.path.join(figures_dir, 'pi_p.png'), dpi=300, bbox_inches='tight')
 plt.close()
