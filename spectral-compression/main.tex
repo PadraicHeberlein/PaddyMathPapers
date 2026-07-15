@@ -277,6 +277,10 @@ In the $L_\infty$ limit, this simplifies to division by $\max(|\cos\theta|, |\si
 
 By replacing standard trigonometric functions with their $p$-generalized counterparts during both the ray-casting (compression) and reconstruction (decompression) phases, the algorithm naturally measures and generates geometry relative to the $L_p$ metric. This \emph{manifold trick} flattens sharp objects into low-frequency 1D signals prior to spectral decomposition, allowing the standard $L_2$ FFT to compress non-Euclidean shapes flawlessly.
 
+\begin{remark}[Connection to Potential Energy Wells]
+	The shape of the $\pi_p$ curve in Fig.~\ref{fig:lp_circles} bears a striking resemblance to the potential energy graphs of interacting particles in physics (such as the Lennard-Jones or Morse potentials), which are characterized by a steep repulsive wall at small distances, a global minimum well, and a gradual asymptotic approach to a constant value at large distances. Just as a physical system naturally seeks the state of lowest potential energy, it is an interesting geometric coincidence that the standard Euclidean geometry of our universe ($L_2$ space) sits exactly at the ``minimum energy'' well of this mathematical curve, minimizing the circumference-to-diameter ratio at exactly $\pi$.
+\end{remark}
+
 \subsection{Dynamic Metric Optimization via Variance Minimization}
 
 For an arbitrary mesh segment, the optimal metric $p$ is the one that minimizes the high-frequency energy of the extracted radius signal $r_p(\theta)$. Because the DC (zero-frequency) component represents the mean radius, minimizing the total energy of all non-zero frequencies is mathematically equivalent to minimizing the statistical variance of the spatial signal.
