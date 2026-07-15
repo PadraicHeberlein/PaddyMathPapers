@@ -34,11 +34,15 @@ plt.close()
 # 2. Pi_p Graph
 from scipy.integrate import quad
 
+def f(x, p):
+    # Avoid division by zero at x=1
+    if x == 1: return np.inf
+    return (1 + (x**(p*(p-1))) / ((1 - x**p)**(p-1)))**(1/p)
+
 def pi_p(p):
     if p == 1:
         return 4.0
-    # The true value of pi in Lp space (ratio of Lp-circumference to diameter)
-    val, _ = quad(lambda u: (u**(1-p) + (1-u)**(1-p))**(1/p), 0, 1)
+    val, _ = quad(lambda x: f(x, p), 0, 1)
     return 2 * val
 
 p_range = np.linspace(1, 11, 500)
