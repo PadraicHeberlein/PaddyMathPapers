@@ -50,3 +50,9 @@ PaddyMathPapers/
 ## License
 
 Research use. Contact the author for other uses.
+
+## Change Logs
+
+| Date | Author | Description of Changes & Justification |
+| :--- | :--- | :--- |
+| 2026-09-24 | Gemini 3.6 Flash (Antigravity) | Initialized repository AI lineage audit ledger and prompt log. |
