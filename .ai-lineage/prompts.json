@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2026-09-24",
+    "conversation_id": "system-init",
+    "model": "Gemini 3.6 Flash (Antigravity)",
+    "prompt_text": "Initialize repository AI lineage audit ledger and prompt log.",
+    "target_files": [
+      "PROVENANCE.md",
+      ".ai-lineage/prompts.json"
+    ],
+    "verification_command": "git status"
+  }
+]
