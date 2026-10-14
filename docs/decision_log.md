@@ -33,7 +33,7 @@ The repository was reorganized into two focused, mathematically cohesive manuscr
 
 ### Challenge 2: Quantum Band Structure & Anderson Localization
 - **The Question:** Can the mapping of modular multiplication remainders to Dirac delta-function potential wells on a unit circle be verified as a genuine quantum physical system rather than a vague qualitative analogy?
-- **Numerical Finding:** We constructed a tight-binding Hamiltonian lattice model on $n$ sites (`quantum_ring.py`) with nearest-neighbor hopping $t = 1.0$ and potential $V_i = -V_0 \cdot \operatorname{Res}(\mathcal{S}_n(z), z_i)$:
+- **Numerical Finding:** We constructed a tight-binding Hamiltonian lattice model on $n$ sites (`quantum_ring.py`) with nearest-neighbor hopping $t = 1.0$ and potential $V_i = -V_0 \cdot \mathrm{Res}(\mathcal{S}_n(z), z_i)$:
   - **Prime Lattice ($n = 97$):** Forms a finite field; the potential is perfectly uniform on all $n-1$ non-zero sites. The eigenstates are extended Bloch waves. The mean Participation Ratio (PR) is:
     $$\text{PR}_{\text{mean}} = 64.01 \quad (66.0\% \text{ delocalization})$$
   - **Composite Lattice ($n = 96$):** Zero divisors and non-coprime cycling introduce severe disorder (a deep potential sink of $V_0 = -188$ at zero and empty potentials at coprime sites). This amorphous disorder triggers severe **Anderson localization**, collapsing the mean Participation Ratio to:
@@ -75,6 +75,6 @@ The repository was reorganized into two focused, mathematically cohesive manuscr
 ### Challenge 6: Spectral Compression of Sharp Geometries ($L_p$ Metric Optimization)
 - **The Question:** Fourier series representations excel at smooth organic shapes but exhibit Gibbs ringing and poor compression on objects with sharp edges (like boxes or mechanical CAD parts). How can this be resolved without discarding the Fast Fourier Transform?
 - **Mathematical Finding:** We generalized the geometric sampling manifold to Minkowski $L_p$ metric spaces ($|x|^p + |y|^p = 1$) using generalized trigonometric functions $\cos_p(\theta), \sin_p(\theta)$. We then proved the **Variance Minimization Theorem**:
-  $$\operatorname{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$$
-  The variance of the spatial radius signal is exactly equal to the non-DC Fourier energy. Therefore, the optimal metric $p_{\text{opt}} = \operatorname{argmin}_{p \ge 1} \operatorname{Var}(r_p(\theta))$ can be evaluated directly in spatial domain without computing the FFT.
+  $$\mathrm{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$$
+  The variance of the spatial radius signal is exactly equal to the non-DC Fourier energy. Therefore, the optimal metric $p_{\text{opt}} = \arg\min_{p \ge 1} \mathrm{Var}(r_p(\theta))$ can be evaluated directly in spatial domain without computing the FFT.
 - **Resolution:** Tested on 3D box meshes: variance minimization automatically selected $p = \infty$, flattening sharp corners into a DC-dominated 1D waveform and achieving flawless reconstruction with only 5% of Fourier modes (`figures/test_box_inf_recon.png`).

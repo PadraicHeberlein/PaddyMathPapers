@@ -10,7 +10,7 @@
 This manuscript develops a unified mathematical and computational framework exploring the boundaries between discrete sequences, information theory, complex transforms, and continuous spectral representations across three domains:
 
 1. **Modular Arithmetic & Finite Fields:** Proving that the Shannon entropy of flattened modular multiplication matrices achieves its theoretical maximum if and only if $n$ is prime. Introducing the **Spectral Remainder Transform** $\mathcal{S}_n(z)$, whose Cauchy residues recover remainder distributions, and constructing a continuous entropy landscape $S(x)$ that isolates prime numbers via gradient ascent.
-2. **Quantum Ring Analogy & Anderson Localization:** Translating modular remainder counts into delta-potential wells on a 1D unit ring. Solving the time-independent Schrödinger equation reveals that prime rings act as resonant crystals supporting extended Bloch waves ($\text{PR} \approx 66\%$), whereas composite rings induce severe **Anderson localization** ($\text{PR} \approx 2.5\%$).
+2. **Quantum Ring Analogy & Anderson Localization:** Translating modular remainder counts into delta-potential wells on a 1D unit ring. Solving the time-independent Schrödinger equation reveals that prime rings act as resonant crystals supporting extended Bloch waves ($\text{PR} \approx 66$\%), whereas composite rings induce severe **Anderson localization** ($\text{PR} \approx 2.5$\%).
 3. **Sequence Periodicity & Continuous Representation Limits:** Demonstrating that per-bit block entropy reaches a minimum at the natural word length of a sequence, extractable in $\mathcal{O}(N \log N)$ time via the Fast Fourier Transform. Establishing an **Information Conservation Law** ($M \cdot B \ge N$) proving that continuous curve embeddings cannot bypass Shannon limits due to floating-point inflation and degree-of-freedom conservation.
 
 ---
@@ -37,7 +37,7 @@ This manuscript develops a unified mathematical and computational framework expl
    Proven via row permutations in finite fields $\mathbb{F}_n$ vs. zero-divisor cycling in composite rings.
 2. **Spectral Remainder Transform & Residue Identity (Definition 1, Lemma 1):**
    The meromorphic function $\mathcal{S}_n(z) = \sum_{j,k} \frac{1}{z - e^{2\pi i (jk \bmod n)/n}}$ recovers empirical remainder probabilities through its Cauchy residues at the $n$-th roots of unity:
-   $$p(s) = \frac{\operatorname{Res}(\mathcal{S}_n, z_s)}{(n-1)^2}$$
+   $$p(s) = \frac{\mathrm{Res}(\mathcal{S}_n, z_s)}{(n-1)^2}$$
 3. **Laurent Coefficients Identity & Ramanujan Sums (Proposition 2, Corollary 1):**
    The expansion at infinity $\mathcal{S}_n(z) = \sum_{m=0}^\infty \frac{C_m(n)}{z^{m+1}}$ has exact coefficients:
    $$C_m(n) = n \cdot \gcd(m, n) - 2n + 1$$

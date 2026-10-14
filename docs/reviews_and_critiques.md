@@ -58,7 +58,7 @@ In early iterations, the repository suffered from two classic pitfalls of early-
    - *Action Taken:* Replaced with the formal **Information Conservation Law** ($M \cdot B \ge N$) and the **Degrees of Freedom Preservation Theorem** based on rank-nullity in $L^2$.
 4. **Sharp Edges vs. Fourier Methods:**
    - *Critique:* Standard $L_2$ unwrapping fails on mechanical objects with sharp corners (like boxes).
-   - *Action Taken:* Generalized the entire framework to Minkowski $L_p$ metric spaces and proved the **Variance Minimization Theorem** ($\operatorname{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$) for automatic $L_\infty$ selection.
+   - *Action Taken:* Generalized the entire framework to Minkowski $L_p$ metric spaces and proved the **Variance Minimization Theorem** ($\mathrm{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$) for automatic $L_\infty$ selection.
 
 ---
 

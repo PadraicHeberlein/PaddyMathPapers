@@ -30,6 +30,7 @@ Prompts and execution traces are recorded in [`.ai-lineage/prompts.json`](../.ai
 | :--- | :--- | :--- | :--- | :--- |
 | **2026-09-24** | `system-init` | Gemini 3.6 Flash | Initialized repository AI lineage audit ledger and prompt log. | `PROVENANCE.md`, `.ai-lineage/prompts.json` |
 | **2026-10-14** | `452521c0-...` | Gemini 3.8 Flash | Restructured repository into curated `docs/` Research Notebook, built `pdf/` distribution, and created root showcase `README.md`. | `docs/`, `pdf/`, `README.md` |
+| **2026-10-14** | `5fbbf4db-...` | Gemini 3.8 Flash | Resolved GitHub math rendering issues (`\operatorname` restriction and unescaped `%` comment character) across READMEs and docs. | `README.md`, `docs/`, `spectral-*/` |
 
 ---
 

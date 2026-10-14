@@ -25,7 +25,7 @@ Because physical and organic surfaces exhibit high spatial correlation, this 1D 
 | Moving Frame & Quaternion Trajectory | Sharp Geometry Compression ($L_\infty$) |
 | :---: | :---: |
 | ![Quaternion Trajectory](figures/quaternion_trajectory.png) | ![Test Box Recon](figures/test_box_inf_recon.png) |
-| *Bishop/Frenet frame integration via unit quaternions in $\mathbb{H}$ and $\operatorname{SU}(2)$ spin operators.* | *Original sharp 3D box (left) and decompressed mesh (right) using variance-optimized $L_\infty$ norm.* |
+| *Bishop/Frenet frame integration via unit quaternions in $\mathbb{H}$ and $\mathrm{SU}(2)$ spin operators.* | *Original sharp 3D box (left) and decompressed mesh (right) using variance-optimized $L_\infty$ norm.* |
 
 ---
 
@@ -39,8 +39,8 @@ Because physical and organic surfaces exhibit high spatial correlation, this 1D 
    In the limit as winding number $n \to \infty$, the image of the spiral path $\mathbf{c}_n(t)$ is dense in the surface $\mathcal{M}$, reducing the 3D surface to a continuous 1D waveform $r(t)$.
 4. **Variance Minimization of Fourier Energy (Theorem 1):**
    By Parseval's theorem, the statistical variance of a spatial signal equals the sum of squared magnitudes of non-DC Fourier coefficients:
-   $$\operatorname{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$$
-   This enables finding the optimal metric $p_{\text{opt}} = \operatorname{argmin}_{p \ge 1} \operatorname{Var}(r_p(\theta))$ directly in the spatial domain without computing the FFT.
+   $$\mathrm{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$$
+   This enables finding the optimal metric $p_{\text{opt}} = \arg\min_{p \ge 1} \mathrm{Var}(r_p(\theta))$ directly in the spatial domain without computing the FFT.
 
 ---
 

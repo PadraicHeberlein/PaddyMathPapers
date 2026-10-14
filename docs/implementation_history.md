@@ -43,7 +43,7 @@ This document archives the historical engineering and implementation blueprints 
 - **Key Step:** Differentiated concave boundary curves $h'(s) = \mathbf{T}(s)(1 - r(s)\kappa(s))$, proving that as $r(s) \to 1/\kappa(s)$, derivative vanishing generates physical cusp singularities. Created `symmetric_cusp.py`.
 
 ### Phase 3: Quaternionic Parameterization & Numerical Integration
-- **Objective:** Encode moving frames into unit quaternions $q \in \mathbb{H}$ and relate to $\operatorname{SU}(2)$ spin operators.
+- **Objective:** Encode moving frames into unit quaternions $q \in \mathbb{H}$ and relate to $\mathrm{SU}(2)$ spin operators.
 - **Key Step:** Implemented 4th-order Runge-Kutta numerical integration of $dq/ds = \frac{1}{2}q\omega$ (`quaternion_frame.py`). Visualized 3D space trajectories and stereographic projections on $S^3$.
 
 ### Phase 4: Cylindrical Evolute Unwrapping
@@ -56,4 +56,4 @@ This document archives the historical engineering and implementation blueprints 
 
 ### Phase 6: Generalization to Minkowski $L_p$ Metric Spaces
 - **Objective:** Overcome Fourier Gibbs ringing on sharp geometries (like boxes) without abandoning spectral transforms.
-- **Key Step:** Formulated $p$-generalized trigonometric functions $\cos_p(\theta), \sin_p(\theta)$. Proved the Variance Minimization Theorem ($\operatorname{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$) and validated automatic $L_\infty$ selection for box meshes.
+- **Key Step:** Formulated $p$-generalized trigonometric functions $\cos_p(\theta), \sin_p(\theta)$. Proved the Variance Minimization Theorem ($\mathrm{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$) and validated automatic $L_\infty$ selection for box meshes.

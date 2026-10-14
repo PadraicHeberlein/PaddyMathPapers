@@ -9,5 +9,20 @@
       ".ai-lineage/prompts.json"
     ],
     "verification_command": "git status"
+  },
+  {
+    "timestamp": "2026-10-14",
+    "conversation_id": "5fbbf4db-c0f6-482e-bdfe-61af979cb62e",
+    "model": "Gemini 3.8 Flash (Antigravity)",
+    "prompt_text": "Fix LaTeX math rendering issues in README.md caused by disallowed operatorname macros and unescaped percent signs.",
+    "target_files": [
+      "README.md",
+      "spectral-compression/README.md",
+      "spectral-entropy/README.md",
+      "docs/decision_log.md",
+      "docs/implementation_history.md",
+      "docs/reviews_and_critiques.md"
+    ],
+    "verification_command": "git grep -n 'operatorname' -- '*.md'"
   }
 ]

@@ -14,7 +14,7 @@ An open computational mathematics laboratory exploring the boundaries between **
 
 | Manuscript | Focus Areas | Formats |
 | :--- | :--- | :---: |
-| **Spectral Compression of 3D Surfaces via Quaternionic Moving Frames and the Spiral Transform** | Differential geometry, Bishop/Frenet moving frames, unit quaternions in $\mathbb{H}$, $\operatorname{SU}(2)$ spin operators, infinite-winding spiral dimensional reduction ($3\text{D} \to 1\text{D}$), Minkowski $L_p$ spaces, dynamic metric variance optimization. | [**[PDF]**](pdf/spectral_compression_3d_surfaces.pdf) &bull; [**[LaTeX]**](spectral-compression/main.tex) |
+| **Spectral Compression of 3D Surfaces via Quaternionic Moving Frames and the Spiral Transform** | Differential geometry, Bishop/Frenet moving frames, unit quaternions in $\mathbb{H}$, $\mathrm{SU}(2)$ spin operators, infinite-winding spiral dimensional reduction ($3\text{D} \to 1\text{D}$), Minkowski $L_p$ spaces, dynamic metric variance optimization. | [**[PDF]**](pdf/spectral_compression_3d_surfaces.pdf) &bull; [**[LaTeX]**](spectral-compression/main.tex) |
 | **On the Spectral Entropy, Periodicity, and Representation Limits of Discrete Sequences** | Finite field entropy maximization, the Spectral Remainder Transform $\mathcal{S}_n(z)$, Laurent series & Ramanujan sums, quantum ring tight-binding simulation & Anderson localization, $\mathcal{O}(N\log N)$ FFT periodicity, Information Conservation Law ($M \cdot B \ge N$). | [**[PDF]**](pdf/spectral_entropy_discrete_sequences.pdf) &bull; [**[LaTeX]**](spectral-entropy/main.tex) |
 | **The Open Research Notebook & Design Archive** | Author context, initial peer critiques, mathematical resolutions, engineering blueprints, and future publication milestones. | [**[Browse Notebook]**](docs/README.md) |
 
@@ -23,7 +23,7 @@ An open computational mathematics laboratory exploring the boundaries between **
 ## 🖼️ Visual Showcase Gallery
 
 ### 1. 3D Surface Spectral Compression & Spiral Reduction
-By taking the winding number of a moving-frame spiral around a 3D curved axis to infinity, we execute a continuous dimensional reduction from a 2D surface manifold to a single 1D radius waveform $r(t)$. Because physical surfaces exhibit strong spatial correlation, their 1D radius signals are spectrally concentrated, enabling high-fidelity geometric reconstruction while discarding **$97\%$ of Fourier modes**:
+By taking the winding number of a moving-frame spiral around a 3D curved axis to infinity, we execute a continuous dimensional reduction from a 2D surface manifold to a single 1D radius waveform $r(t)$. Because physical surfaces exhibit strong spatial correlation, their 1D radius signals are spectrally concentrated, enabling high-fidelity geometric reconstruction while discarding **97% of Fourier modes**:
 
 <p align="center">
   <img src="spectral-compression/figures/spiral_transform_reconstruction.png" width="92%" alt="Spiral Transform 3D Reconstruction" />
@@ -38,12 +38,12 @@ Translating modular multiplication tables into Dirac delta-potential wells on a 
 <p align="center">
   <img src="spectral-entropy/figures/quantum_ring_comparison.png" width="92%" alt="Quantum Ring Comparison: Prime vs Composite" />
 </p>
-<p align="center"><em>Numerical tight-binding simulation for prime $n=97$ vs. composite $n=96$. Top: Potential profiles $V(\theta)$. Middle: Ordered energy spectra and Participation Ratios (PR). Bottom: Spatial eigenstates demonstrating extended transport in primes ($\text{PR} \approx 66\%$) versus complete wavefunction localization in composites ($\text{PR} \approx 2.5\%$).</em></p>
+<p align="center"><em>Numerical tight-binding simulation for prime $n=97$ vs. composite $n=96$. Top: Potential profiles $V(\theta)$. Middle: Ordered energy spectra and Participation Ratios (PR). Bottom: Spatial eigenstates demonstrating extended transport in primes ($\text{PR} \approx 66$\%) versus complete wavefunction localization in composites ($\text{PR} \approx 2.5$\%).</em></p>
 
 ---
 
 ### 3. Non-Euclidean $L_p$ Metric Spaces & Sharp Geometries
-Standard Fourier methods suffer from severe Gibbs ringing at sharp corners. By generalizing the sampling manifold to Minkowski $L_p$ metric spaces with $p$-generalized trigonometry ($\cos_p, \sin_p$), we prove that minimizing spatial variance ($\operatorname{Var}(r) = \sum |\hat{r}[k]|^2$) auto-selects the optimal metric (e.g., $L_\infty$ for boxes), flattening corners into a low-frequency signal that Fourier analysis compresses flawlessly:
+Standard Fourier methods suffer from severe Gibbs ringing at sharp corners. By generalizing the sampling manifold to Minkowski $L_p$ metric spaces with $p$-generalized trigonometry ($\cos_p, \sin_p$), we prove that minimizing spatial variance ($\mathrm{Var}(r) = \sum |\hat{r}[k]|^2$) auto-selects the optimal metric (e.g., $L_\infty$ for boxes), flattening corners into a low-frequency signal that Fourier analysis compresses flawlessly:
 
 <p align="center">
   <img src="spectral-compression/figures/lp_circles.png" width="46%" alt="Lp Circles" />
@@ -67,12 +67,12 @@ By evaluating modular multiplication tables from first principles, we construct 
 
 ### Paper 1: Spectral Compression of 3D Surfaces via Quaternionic Moving Frames and the Spiral Transform
 * **Path:** [`spectral-compression/`](spectral-compression/) &bull; **PDF:** [`pdf/spectral_compression_3d_surfaces.pdf`](pdf/spectral_compression_3d_surfaces.pdf)
-* **Abstract:** We present a differential-geometric framework for the spectral compression of three-dimensional surfaces of revolution about non-planar curved axes. The rotation field is governed by moving frames (Bishop/Frenet-Serret) and unit quaternions in $\mathbb{H}$, connecting geometric construction to the $\operatorname{SU}(2)$ spin operators of quantum mechanics. By taking the winding number to infinity, we execute a spiral dimensional reduction mapping the 3D surface onto a single continuous 1D radius signal $r(t)$. We prove that concave boundary curves naturally develop cusp singularities when the offset approaches the axis radius of curvature. Furthermore, we expand the framework from Euclidean $L_2$ spaces to Minkowski $L_p$ spaces, proving that spatial variance minimization auto-selects optimal metrics for sharp CAD geometries.
+* **Abstract:** We present a differential-geometric framework for the spectral compression of three-dimensional surfaces of revolution about non-planar curved axes. The rotation field is governed by moving frames (Bishop/Frenet-Serret) and unit quaternions in $\mathbb{H}$, connecting geometric construction to the $\mathrm{SU}(2)$ spin operators of quantum mechanics. By taking the winding number to infinity, we execute a spiral dimensional reduction mapping the 3D surface onto a single continuous 1D radius signal $r(t)$. We prove that concave boundary curves naturally develop cusp singularities when the offset approaches the axis radius of curvature. Furthermore, we expand the framework from Euclidean $L_2$ spaces to Minkowski $L_p$ spaces, proving that spatial variance minimization auto-selects optimal metrics for sharp CAD geometries.
 * **Key Findings:**
   - **Tubular Diffeomorphism (Proposition 1):** $\det J = 1 - u\kappa(s) > 0 \iff \max r(s) < \min 1/\kappa(s)$.
   - **Cusp Singularity Analysis:** Vanishing of $h'(s) = \mathbf{T}(s)(1 - r(s)\kappa(s))$ marks the physical boundary of the tubular neighborhood.
   - **Spiral Density (Proposition 2):** In the limit $n \to \infty$, the image of the spiral path $\mathbf{c}_n(t)$ is dense in the surface $\mathcal{M}$.
-  - **Variance Minimization (Theorem 1):** $\operatorname{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$, enabling closed-form metric optimization without FFT evaluation.
+  - **Variance Minimization (Theorem 1):** $\mathrm{Var}(r) = \sum_{k=1}^{N-1} |\hat{r}[k]|^2$, enabling closed-form metric optimization without FFT evaluation.
 
 ---
 
@@ -81,7 +81,7 @@ By evaluating modular multiplication tables from first principles, we construct 
 * **Abstract:** We establish a unified framework governing the spectral entropy, periodicity, and representation limits of discrete sequences across modular arithmetic, binary strings, and continuous embeddings. First, we prove that the Shannon entropy of flattened modular multiplication matrices achieves its maximum if and only if $n$ is prime. We introduce the Spectral Remainder Transform $\mathcal{S}_n(z)$, a meromorphic function on the unit circle whose Cauchy residues recover remainder distributions, and derive its Laurent series expansion linked to Ramanujan sums. Second, we generalize this to arbitrary binary sequences, demonstrating that per-bit block entropy reaches a minimum at the fundamental period, detectable in $\mathcal{O}(N\log N)$ time via the Fast Fourier Transform. Third, we establish fundamental limits of continuous embeddings, proving an Information Conservation Law ($M \cdot B \ge N$) and degree-of-freedom bounds that explain why continuous curves cannot bypass Shannon limits.
 * **Key Findings:**
   - **Entropy Maximization (Theorem 1):** $H(P_n) = \log_2(n-1) \iff n \text{ is prime}$.
-  - **Spectral Remainder Transform (Lemma 1):** $p(s) = \frac{\operatorname{Res}(\mathcal{S}_n, z_s)}{(n-1)^2}$ at roots of unity $z_s = e^{2\pi i s/n}$.
+  - **Spectral Remainder Transform (Lemma 1):** $p(s) = \frac{\mathrm{Res}(\mathcal{S}_n, z_s)}{(n-1)^2}$ at roots of unity $z_s = e^{2\pi i s/n}$.
   - **Laurent Primality Identity (Proposition 2):** $C_m(n) = n\gcd(m,n) - 2n + 1$; primes satisfy $C_m(n) = 1-n$ for all $1 \le m < n$.
   - **Prime-Square Deficit Decay (Proposition 1):** $\Delta(p^2) \sim \frac{1}{2p}$, mandating linear contrast scaling $\beta \sim \mathcal{O}(N)$.
   - **Information Conservation Law (Theorem 3):** Injective mappings from $\{0,1\}^N$ to $M$ floating-point parameters of bit-width $B$ satisfy $M \cdot B \ge N$, demonstrating an $8\times$ inflation penalty for 32-bit float sinusoidal embeddings.
